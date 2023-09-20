@@ -1,0 +1,80 @@
+.container {
+    /* Estilos del contenedor */
+    padding-top: 6em;
+    border-radius: 10px;
+  }
+
+  .items{
+    border-radius: 20px;
+    background-color: rgba(22, 8, 53, 0.596);
+    padding: 5px; 
+    box-shadow: rgba(8, 51, 47, 0.514) 20px 15px 30px -5px; 
+    transition: 1s;
+    color: transparent;
+    width: 80%;
+    height: 70%;
+  }
+  
+  .items h3 {
+    /* Estilos del título */
+    margin: 2px; /* Margen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .items:hover {
+    /* Estilos del contenedor al pasar el mouse por encima */
+    background-image: url('img/rick-.jpg');
+    background-position: center;
+    background-size: cover; 
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; /*fuente*/
+    transition: 1.6s;
+    position: relative;
+    border-radius: 30%;
+    width: 82%;
+  }
+
+  .items:hover::before{
+    position: absolute;
+    content: "";
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.616);
+  }
+
+  .items:hover h3 {
+    text-shadow: 2px 4px 6px black;
+    color: rgb(236, 236, 236);
+    position: relative;
+  }
+
+  
+  img {
+    /* Estilos de la imagen */
+    width: 90%; /* Ancho de imagen */
+    border-radius: 10px; /* Borde redondeado */
+    margin-bottom: 10px; /* Margen inferior */
+    padding-bottom: 10px;
+    position: relative;
+  }
+
+  img:hover {
+    /* width: 95%; */
+    transition: 1.6s;
+  }
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.onclose {
+    background-color: rgba(137, 43, 226, 0.822);
+    border-color: rgba(0, 0, 0, 0.767);
+    color: rgb(255, 255, 255);
+    border-radius: 100%;
+}
+.onclose:hover {
+  background-color: rgb(209, 24, 24);
+}

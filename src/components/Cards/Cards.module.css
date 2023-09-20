@@ -1,0 +1,9 @@
+.container {
+    display: flex; /* Cambiar a un diseño flexible */
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap; /* Envolver elementos en varias líneas */
+    gap: 2%; /* Espacio entre elementos */
+    margin-left: auto;
+}
