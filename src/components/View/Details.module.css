@@ -1,0 +1,26 @@
+.containery {
+display: grid;
+grid-template-columns: 1fr 1fr;
+/* background: url(); */
+height: 100vh;
+}
+
+.left{
+    font-size: 2em;
+    
+    background-color: rgba(24, 24, 88, 0.301);
+    color: white;
+}
+
+.right div{
+    padding-top: 4em;
+}
+
+.right div img{
+    width: 26em;
+    border-radius: 100%;
+}
+
+.right div img:hover{
+    width: 67%;
+}

@@ -11,8 +11,8 @@ const SearchBar = (props) =>{
    const {onSearch} = props;
    return (
       <div className={styles.search}>
-         <input type='search' placeholder="ID...🔎🔎🔎" onChange={handleChange} value={id} />
          <button className={styles.button} onClick={() => onSearch(id)}>Add char</button>
+         <input type='search' placeholder="ID...🔎🔎🔎" onChange={handleChange} value={id} />
       </div>
    );
 }

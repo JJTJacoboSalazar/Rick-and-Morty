@@ -36,8 +36,8 @@
 
 .button {
     height: 2.3em;
-    border-radius: 50px;
-    background-color: rgba(83, 43, 226, 0.856);
+    border-radius: 10px;
+    background-color: rgba(83, 43, 226, 0.041);
     color: white;
     text-shadow: 2px 1px black;
     box-shadow: 1px 0.6px rgba(0, 0, 0, 0.562);
@@ -48,3 +48,11 @@
     transition: 1s;
 }
 
+.logOut{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.logOut:hover{
+    color: white;
+}

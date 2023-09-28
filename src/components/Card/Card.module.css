@@ -4,6 +4,10 @@
     border-radius: 10px;
   }
 
+  .name {
+    color: transparent;
+  }
+
   .items{
     border-radius: 20px;
     background-color: rgba(22, 8, 53, 0.596);
@@ -51,9 +55,9 @@
   
   img {
     /* Estilos de la imagen */
-    width: 90%; /* Ancho de imagen */
-    border-radius: 10px; /* Borde redondeado */
-    margin-bottom: 10px; /* Margen inferior */
+    width: 90%; 
+    border-radius: 10px; 
+    margin-bottom: 10px; 
     padding-bottom: 10px;
     position: relative;
   }

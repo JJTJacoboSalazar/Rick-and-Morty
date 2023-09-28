@@ -1,13 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Cards from './components/Cards/Cards';
 // import characters from './data.js'; 
 import Nav from './components/Nav/Nav';
 import axios from 'axios';
+import {Routes, Route, useLocation, useNavigate} from 'react-router-dom'
+import About from './components/View/About';
+import Detail from './/components/View/Detail'
+import Form from './components/Form/Form';
 
 
 function App() {
    const [characters, setCharacters] = useState([])
+
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false);
+
+   const EMAIL = "tadeo.jacobo6@gmail.com";
+   const PASSWORD = "jacobo1234";
+
+   const login = (userData) => {
+      if(userData.email === EMAIL && userData.password === PASSWORD){
+         setAccess(true);
+         navigate('/home');
+      }
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
+   const logout = () => {
+      setAccess(false);
+      navigate('/');
+   }
 
    const onSearch = (id) => {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
@@ -18,12 +44,7 @@ function App() {
          }
       })
    }
-     /*Esta función  addRandomCharacter  se encarga de agregar un personaje aleatorio a la lista de personajes. 
-- Se utiliza la librería  axios  para hacer una petición GET a la API de Rick and Morty. 
-- Se obtiene un personaje aleatorio de la lista de personajes obtenida de la API. 
-- Se verifica si el personaje ya ha sido agregado a la lista de personajes utilizando el método  some . 
-- Si el personaje ya ha sido agregado, se muestra una alerta indicando que el personaje ya ha sido agregado. 
-- Si el personaje no ha sido agregado, se utiliza el método  setCharacters  para actualizar el estado de personajes con el nuevo personaje. */
+    
 const getRandomCharacter = () => {
    axios('https://rickandmortyapi.com/api/character').then(({ data }) => {
      const randomIndex = Math.floor(Math.random() * data.results.length);
@@ -40,11 +61,24 @@ const getRandomCharacter = () => {
       )
    }
 
+
+   const location = useLocation();
+
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} getRandomCharacter={getRandomCharacter} />
-         <Cards characters={characters} onClose={onClose} />
-         {/* <Card > */}
+         {location.pathname !== '/' && <Nav onLogout={logout} onSearch={onSearch} getRandomCharacter={getRandomCharacter} />}
+
+         <Routes>
+            <Route path='/home' element={
+         <Cards characters={characters} onClose={onClose} />}/>
+
+            <Route path='/about' element={<About/>} />
+            
+            <Route path='/detail/:id' element={<Detail/>} />
+
+            <Route path='/' element={<Form onLogin={login} />} />
+         </Routes>
+
       </div>
    );
 }
