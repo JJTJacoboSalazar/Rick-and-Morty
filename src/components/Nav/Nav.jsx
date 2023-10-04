@@ -9,12 +9,15 @@ const Nav = (props) => {
     const {onSearch,getRandomCharacter, onLogout} = props;
     return (
         <header className={styles.miheader}>
-            <Link to={'/Home'}>
+            <Link to={'/home'}>
             <img className={styles.logo} src={logo} alt="logo" />
             </Link>
         <nav className={styles.container}>
-            <Link to={'/About'}>
+            <Link to={'/about'}>
                 <button className={styles.button}>About</button>
+            </Link>
+            <Link to={'/favorites'}>
+                <button className={styles.button}>Favorites</button>
             </Link>
 
            <div className={styles.container}>

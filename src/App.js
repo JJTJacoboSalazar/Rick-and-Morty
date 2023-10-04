@@ -7,7 +7,9 @@ import axios from 'axios';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom'
 import About from './components/View/About';
 import Detail from './/components/View/Detail'
+import { NotFound } from './components/View/NotFound';
 import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
 
 
 function App() {
@@ -70,13 +72,17 @@ const getRandomCharacter = () => {
 
          <Routes>
             <Route path='/home' element={
-         <Cards characters={characters} onClose={onClose} />}/>
+               <Cards characters={characters} onClose={onClose} />}/>
 
             <Route path='/about' element={<About/>} />
             
             <Route path='/detail/:id' element={<Detail/>} />
 
+            <Route path='/favorites' element={<Favorites onClose={onClose} />} />
+
             <Route path='/' element={<Form onLogin={login} />} />
+
+            <Route path='*' element={<NotFound />} />
          </Routes>
 
       </div>
