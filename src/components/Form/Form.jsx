@@ -35,8 +35,8 @@ const Form = ({onLogin}) => {
         <div className={styles.theLogo}>
       <img className={styles.logo} src={logo} alt="logo" />
         </div>
-    <h2>WELCOME!</h2>
-    <p>Hi, welcome to my Rick and Morty page. This app allows you to explore the multiverse of the series, collect characters from the series and in all its versions. Are you ready to live an interdimensional adventure?. <br />Sign up now and start enjoying this amazing app!</p>
+    <h1>WELCOME!</h1>
+    <p>Welcome to Rick and Morty App, the ultimate fan app for the popular animated series Rick and Morty. This app allows you to explore the multiverse of the series, collect characters from the series and in all its versions. Are you ready to live an interdimensional adventure?. <br />Sign up now and start enjoying this amazing app!</p>
       </div>
 
     <form className={styles.login} onSubmit={handleSubmit}>
