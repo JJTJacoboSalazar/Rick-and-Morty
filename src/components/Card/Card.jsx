@@ -37,17 +37,25 @@ function Card(props) {
 
    return (
       <div className={styles.container}>
+       
+                 
          <div className={styles.items}>
-         <div className={styles.button}>
-         <button className={styles.onclose} onClick={() => onClose(id)}>X</button>
+            <div className={styles.both}>
+
+         <div className={styles.favButton}>
          {
-         isFav ? (
-            <button onClick={handleFavorite}>❤️</button>
-         ) : (
-            <button onClick={handleFavorite}>🤍</button>
-         )
-      }
+            isFav ? (  
+               <button onClick={handleFavorite}>❤️</button>
+               ) : (
+                  <button onClick={handleFavorite}>🤍</button>  
+                  )
+               }
+               </div>
+               <div className={styles.button}>
+         <button className={styles.onclose} onClick={() => onClose(id)}>X</button>
          </div>
+               </div>
+                
          <NavLink className={styles.name} to={`/detail/${id}`}>
          <h3>{name}</h3>
          </NavLink>

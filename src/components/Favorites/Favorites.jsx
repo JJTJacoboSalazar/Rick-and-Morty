@@ -1,16 +1,44 @@
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import { useState } from "react";
 import Card from "../Card/Card";
-import style from './Favorites.module.css'
+import style from "./Favorites.module.css"
+import { filterCards, orderCards } from "../../redux/actions";
+
 
 
 const Favorites = (props) => {
+  const dispatch = useDispatch();
   const {myFavorites} = props;
 
+  const [aux, setAux] = useState(false);
+
+  const handleOrder = (e) => {
+    dispatch(orderCards(e.target.value));
+    setAux(!aux)
+  }
+
+    const handleFilter = (e) => {
+    dispatch(filterCards(e.target.value))
+  }
+
    return (
-   <div className={style.container}>
+   <div >
     <h1>My Favorites</h1>
+    <select onChange={handleOrder}>
+      <option value="A">Ascendente</option>
+      <option value="D">Descendente</option>
+    </select>
+
+    <select onChange={handleFilter}>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Genderless">Genderless</option>
+      <option value="unknown">unknown</option>
+    </select>
+
+    <div className={style.cont}>
       {myFavorites.map(character => (
-         <Card 
+         <Card
          key= {character.id}
          id={character.id}
          name={character.name}
@@ -21,7 +49,8 @@ const Favorites = (props) => {
          image={character.image}
         //  onClose={onClose}
          />
-      ))}
+         ))}
+         </div>
    </div>);
 }
 

@@ -5,7 +5,8 @@ import style from './Cards.module.css'
 export default function Cards(props) {
    const {characters, onClose} = props;
    return (
-   <div className={style.container}>
+      <div className={style.container}>
+      {/* <h1>Home</h1> */}
       {characters.map(character => (
          <Card 
          key= {character.id}

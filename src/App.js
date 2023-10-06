@@ -39,21 +39,34 @@ function App() {
 
    const onSearch = (id) => {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-         if (data.name) {
+        if (data.name) {
+          // Verificar si el personaje ya existe en el estado characters
+          const characterExists = characters.find((character) => character.id === data.id);
+          if (characterExists) {
+            window.alert('¡Este personaje ya ha sido agregado!');
+          } else {
             setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      })
-   }
+          }
+        } else {
+          window.alert('¡No hay personajes con este ID!');
+        }
+      });
+    };
     
-const getRandomCharacter = () => {
-   axios('https://rickandmortyapi.com/api/character').then(({ data }) => {
-     const randomIndex = Math.floor(Math.random() * data.results.length);
-     const randomCharacter = data.results[randomIndex];
-     setCharacters((oldChars) => [...oldChars, randomCharacter]);
-   });
- };
+    const getRandomCharacter = () => {
+      axios('https://rickandmortyapi.com/api/character').then(({ data }) => {
+        const randomIndex = Math.floor(Math.random() * data.results.length);
+        const randomCharacter = data.results[randomIndex];
+        
+        // Verificar si el personaje ya existe en el estado characters
+        const characterExists = characters.find((character) => character.id === randomCharacter.id);
+        if (characterExists) {
+          getRandomCharacter(); // Llamar recursivamente a la función si el personaje ya existe
+        } else {
+          setCharacters((oldChars) => [...oldChars, randomCharacter]);
+        }
+      });
+    };
 
    const onClose = (id) => {
       setCharacters(

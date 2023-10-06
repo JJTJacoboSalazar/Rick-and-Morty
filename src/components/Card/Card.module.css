@@ -1,7 +1,12 @@
 .container {
-    /* Estilos del contenedor */
+
+    display: flex;
+    flex-direction: row;
     padding-top: 6em;
     border-radius: 10px;
+  }
+  .container:hover {
+    border-radius: 12px;
   }
 
   .name {
@@ -15,8 +20,8 @@
     box-shadow: rgba(8, 51, 47, 0.514) 20px 15px 30px -5px; 
     transition: 1s;
     color: transparent;
-    width: 80%;
-    height: 70%;
+    width: 15em;
+    height: 22em;
   }
   
   .items h3 {
@@ -35,8 +40,8 @@
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; /*fuente*/
     transition: 1.6s;
     position: relative;
-    border-radius: 30%;
-    width: 82%;
+    width: 15.4em;
+    border-radius: 22px;
   }
 
   .items:hover::before{
@@ -66,6 +71,12 @@
     /* width: 95%; */
     transition: 1.6s;
   }
+  
+  .both {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el contenedor en 2 columnas de igual tamaño */
+     /* Espacio entre los elementos */
+  }
 
 .button {
     display: flex;
@@ -81,4 +92,15 @@
 }
 .onclose:hover {
   background-color: rgb(209, 24, 24);
+}
+
+.favButton {
+  background: none;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.favButton button {
+  background: none ;
 }
