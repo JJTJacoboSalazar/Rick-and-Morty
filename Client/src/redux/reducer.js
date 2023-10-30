@@ -12,21 +12,23 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FAV:
-            return {
+            // return {
                 // Siempre hacer una copia con spread operator
-                ...state,
-                myFavorites: [...state.myFavorites, action.payload],
-                allCharacters: [...state.myFavorites, action.payload]
-            };
+                //* ...state,
+                // myFavorites: [...state.myFavorites, action.payload],
+                // allCharacters: [...state.myFavorites, action.payload]
+                // };
+                return { ...state, myFavorites: action.payload, allCharacters: action.payload };
 
             // Filtramos 
             case REMOVE_FAV:
-                const updatedFavorites = state.myFavorites.filter((character) => character.id !== action.payload);
+                // const updatedFavorites = state.myFavorites.filter((character) => character.id !== action.payload);
                 
-                return {
-                    ...state,
-                    myFavorites: updatedFavorites
-                };
+                // return {
+                //     ...state,
+                //     myFavorites: updatedFavorites
+                // };
+                return { ...state, myFavorites: action.payload };
 
                 case FILTER:
                     const filteredCharacters = state.allCharacters.filter((character) => character.gender === action.payload);
