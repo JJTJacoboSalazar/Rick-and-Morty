@@ -51,34 +51,44 @@
 //.listen(PORT, "localhost");
 
 
-const express = require('express');
-const server = express();
-const PORT = 3001;
-const Router = require('./routes/index');
-const morgan = require('morgan');
 
-server.use(morgan('dev'));
+// *******************************************
+// Jest homework
 
-// Middleware que configura los encabezados
 
-server.use((req, res, next) => {
+// ?const express = require('express');
+// const server = express();
+// const Router = require('./routes/index');
+// const morgan = require('morgan');
+
+// server.use(morgan('dev'));
+
+// // Middleware que configura los encabezados
+
+// server.use((req, res, next) => {
     
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header(
-       'Access-Control-Allow-Headers',
-       'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    res.header(
-       'Access-Control-Allow-Methods',
-       'GET, POST, OPTIONS, PUT, DELETE'
-    );
-    next();
- });
-// Analiza el cuerpo de las solicitudes en JSON
-server.use(express.json());
-// Agrega el prefijo a todas las rutas
-server.use('/rickandmorty', Router);
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Credentials', 'true');
+//     res.header(
+//        'Access-Control-Allow-Headers',
+//        'Origin, X-Requested-With, Content-Type, Accept'
+//     );
+//     res.header(
+//        'Access-Control-Allow-Methods',
+//        'GET, POST, OPTIONS, PUT, DELETE'
+//     );
+//     next();
+//  });
+// // Analiza el cuerpo de las solicitudes en JSON
+// server.use(express.json());
+// // Agrega el prefijo a todas las rutas
+// server.use('/rickandmorty', Router);
+// ******************************************************
+
+const PORT = 3001;
+
+
+const server = require('./app');
 
 
 server.listen(PORT, () => {
