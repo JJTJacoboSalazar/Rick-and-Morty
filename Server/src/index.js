@@ -85,12 +85,17 @@
 // server.use('/rickandmorty', Router);
 // ******************************************************
 
+const server = require('./app');
+const { conn } = require('./db/DB_connection');
 const PORT = 3001;
 
 
-const server = require('./app');
+conn
+.sync({force: true})
+.then(() => {
 
+    server.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}` );
+    })
 
-server.listen(PORT, () => {
-    console.log(`Server is running in port ${PORT}` );
 })
