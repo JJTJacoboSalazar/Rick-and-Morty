@@ -11,7 +11,7 @@ const UserModel = require('./models/User');
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
 
 const sequelize = new Sequelize(
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
+   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
    { logging: false, native: false }
 );
 

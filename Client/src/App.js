@@ -18,8 +18,8 @@ function App() {
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
 
-   const EMAIL = "tadeo.jacobo6@gmail.com";
-   const PASSWORD = "jacobo1234";
+   // const EMAIL = "tadeo.jacobo6@gmail.com";
+   // const PASSWORD = "jacobo1234";
 
    // const login = (userData) => {
    //    const { email, password } = userData;
@@ -34,7 +34,7 @@ function App() {
    const login = async(userData) => {
       try {
          const {email, password} = userData;
-         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const URL = 'http://localhost:3001/rickandmorty/login';
          const response = await axios.get(`${URL}?email=${email}&password=${password}`)
          const {access} = response.data;
          setAccess(response.data);
